@@ -116,8 +116,8 @@ public:
             {
                 return true;
             }
-            return false;
         }
+        return false;
     }
 
     void clearDealt()
@@ -137,6 +137,10 @@ public:
             else if (v.at(i).rank <= 9)
             {
                 s += v.at(i).rank + 1;
+            }
+            else if (v.at(i).rank == 13)
+            {
+                s += 1;
             }
             else
             {
@@ -171,6 +175,8 @@ int main()
     g.ranks.insert(pair<int, string>(10, "Jack"));
     g.ranks.insert(pair<int, string>(11, "Queen"));
     g.ranks.insert(pair<int, string>(12, "King"));
+
+    g.ranks.insert(pair<int, string>(13, "1"));
 
     bool kg = true;
     string userName;
@@ -248,7 +254,7 @@ int main()
                             {
                                 if (g.p.at(i).rank == 0 && !converted)
                                 {
-                                    g.p.at(i).rank = 1;
+                                    g.p.at(i).rank = 13;
                                     converted = true;
                                 }
                             }
